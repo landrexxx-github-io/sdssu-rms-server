@@ -1,4 +1,4 @@
-const mongoose = require('../index');
+const mongoose = require('mongoose');
 
 const accountSchema = mongoose.Schema({
     first_name: {
