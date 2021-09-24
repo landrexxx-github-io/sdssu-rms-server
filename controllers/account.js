@@ -4,6 +4,7 @@ const mongoose = require("../index");
 const AccountSchema = require("../models/account");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const JWT_SECRET_KEY=`@&/H7h8@\{pMZC(8Tg:rVvEC=#E.q^`;
 
 exports.getAccount = async (req, res) => {
     try {
@@ -211,7 +212,7 @@ exports.loginAccount = async (req, res) => {
                     // SAVE the user data in a token
                     const token = jwt.sign(
                         { id: user._id },
-                        process.env.JWT_SECRET_KEY
+                        JWT_SECRET_KEY
                     );
                     return res.status(200).json({
                         success: true,
