@@ -42,12 +42,16 @@ app.use('/account', account_routes);
 app.listen(port, () => console.log(`Server is running at PORT ${port}`));
 
 // SETUP MONGO DATABASE
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log("The mongo database is currently running.");
-    })
-    .catch((error) => {
-        console.log("Error: ", error.message);
-    })
+module.exports = async () => {
+    await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, keepAlive: true })
+        .then(() => {
+            console.log("The mongo database is currently running.");
+        })
+        .catch((error) => {
+            console.log("Error: ", error.message);
+        })
 
-mongoose.set('useFindAndModify', false);
+    mongoose.set('useFindAndModify', false);
+    
+    return mongoose;
+};
