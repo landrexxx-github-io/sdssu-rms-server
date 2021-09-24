@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const mongoose = require("mongoose");
+const mongoose = require("../index");
 const AccountSchema = require("../models/account");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
