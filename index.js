@@ -41,9 +41,12 @@ app.use('/account', account_routes);
 
 app.listen(port, () => console.log(`Server is running at PORT ${port}`));
 
+const MONGO_URI=`mongodb+srv://nemsu-tagbina-atlas:root@research-management-sys.erzxd.mongodb.net/research-management-system-db?authSource=admin&replicaSet=atlas-y8u2vg-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
+JWT_SECRET_KEY=@&/H7h8@\{pMZC(8Tg:rVvEC=#E.q^`
+
 // SETUP MONGO DATABASE
 module.exports = async () => {
-    await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, keepAlive: true, useFindAndModify: false })
+    await mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, keepAlive: true, useFindAndModify: false })
         .then(() => {
             console.log("The mongo database is currently running.");
         })
