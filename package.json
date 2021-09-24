@@ -4,7 +4,8 @@
     "description": "SDSSU Tagbina's Research Management System Server",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.js",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",
